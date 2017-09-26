@@ -1,0 +1,6 @@
+.idea
+.gradle
+CatKeeper/.idea
+CatKeeper/.gradle
+CatKeeper/build
+CatKeeper/app/build
