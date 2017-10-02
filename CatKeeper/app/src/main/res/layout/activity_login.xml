@@ -3,6 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.tw.training.catkeeper.activity.LoginActivity">
+    <ImageView
+        android:src="@mipmap/logo"
+        android:layout_marginTop="96dp"
+        android:scaleType="fitXY"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="231dp"
+        android:layout_height="53dp"/>
 
+    <TextView
+        android:textSize="@dimen/text_size_30"
+        android:textColor="@color/color_dark_orange"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/text_logo_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:hint="Username"
+        android:textColorHint=""
+        android:layout_gravity="center_horizontal"
+        android:layout_width="246dp"
+        android:layout_height="36dp" />
 </LinearLayout>
