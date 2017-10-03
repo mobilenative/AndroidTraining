@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.Window
-import android.view.animation.AccelerateDecelerateInterpolator
 import com.tw.training.catkeeper.R
 import com.tw.training.catkeeper.Utils.KeyboardWatcher
 
@@ -34,7 +33,6 @@ class LoginActivity : AppCompatActivity(), KeyboardWatcher.SoftKeyboardStateList
 
         keyboardWatcher = KeyboardWatcher(findViewById(Window.ID_ANDROID_CONTENT))
         keyboardWatcher.addSoftKeyboardStateListener(this)
-
     }
 
     override fun onDestroy() {
