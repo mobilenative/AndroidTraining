@@ -23,7 +23,6 @@ class KeyboardWatcher @JvmOverloads constructor(private val activityRootView: Vi
      * @return last saved keyboard height in px
      */
     private var lastSoftKeyboardHeightInPx: Int = 0
-        private set
 
     private var statusBarHeight = -1
 
