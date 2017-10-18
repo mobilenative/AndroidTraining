@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.tw.training.catkeeper"
         minSdkVersion 23
@@ -35,8 +35,16 @@ dependencies {
 //    implementation 'io.reactivex.rxjava2:rxjava:2.1.4'
     implementation 'com.squareup.okhttp3:okhttp:3.9.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.mockito:mockito-core:2.10.0"
+    testImplementation "org.robolectric:robolectric:3.4.2"
+
 }
 
 repositories {
     mavenCentral()
 }
+
+apply plugin: 'kotlin-android-extensions'

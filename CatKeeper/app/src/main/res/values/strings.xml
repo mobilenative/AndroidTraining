@@ -6,4 +6,6 @@
     <string name="input_hint_username">Username</string>
     <string name="input_hint_password">Password</string>
     <string name="text_btn_login">Login</string>
+    <string name="btn_txt_cats_nearby">Cats nearby</string>
+    <string name="btn_txt_my_cat">My Cat</string>
 </resources>
