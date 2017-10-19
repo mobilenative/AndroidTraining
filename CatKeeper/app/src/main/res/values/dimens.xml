@@ -19,4 +19,5 @@
     <dimen name="text_size_22">22sp</dimen>
     <dimen name="text_size_16">16sp</dimen>
     <dimen name="text_size_18">18sp</dimen>
+    <dimen name="ui_size_200">200dp</dimen>
 </resources>
