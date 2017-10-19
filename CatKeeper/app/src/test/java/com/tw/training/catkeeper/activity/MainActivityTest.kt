@@ -32,17 +32,14 @@ class MainActivityTest {
         nearByBtn.performClick()
 
         assertTrue(nearByBtn.isSelected)
-        assertFalse(nearByBtn.isSelected)
+        assertFalse(myCatBtn.isSelected)
     }
 
     @Test
     fun shouldSwitchCorrectlyWhenMyCat() {
-        nearByBtn = mainActivity.findViewById<Button>(R.id.left_tab)
-        myCatBtn = mainActivity.findViewById<Button>(R.id.right_tab)
+        myCatBtn.performClick()
 
-        nearByBtn.performClick()
-
-        assertTrue(nearByBtn.isSelected)
+        assertTrue(myCatBtn.isSelected)
         assertFalse(nearByBtn.isSelected)
     }
 }
