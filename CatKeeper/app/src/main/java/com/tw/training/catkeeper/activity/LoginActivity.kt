@@ -8,7 +8,6 @@ import android.view.View
 import android.view.Window
 import android.widget.EditText
 import com.tw.training.catkeeper.R
-import com.tw.training.catkeeper.R.id.input_username
 import com.tw.training.catkeeper.presenter.LoginContract
 import com.tw.training.catkeeper.presenter.LoginPresenter
 import com.tw.training.catkeeper.utils.AnimationUtil
