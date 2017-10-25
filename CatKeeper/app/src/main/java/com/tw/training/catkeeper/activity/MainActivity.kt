@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.ImageView
 import com.tw.training.catkeeper.R
 import com.tw.training.catkeeper.adapter.BannerAdapter
+import com.tw.training.catkeeper.fragment.CatsNearByFragment
+import com.tw.training.catkeeper.fragment.MyCatsFragment
 
 class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, View.OnClickListener {
     private lateinit var mViewPager: ViewPager
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, View.O
 
         initBannerView()
         initTabView()
+        initFragmentView()
     }
 
     private fun initTabView() {
@@ -47,22 +50,34 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, View.O
         mRightTabView.setOnClickListener(this)
     }
 
+    private fun initFragmentView() {
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.add(R.id.fragment_container, CatsNearByFragment.newInstance())
+        fragmentTransaction.commit()
+    }
+
     override fun onResume() {
         super.onResume()
         mHandler.postDelayed(mBannerRunnable, mBannerInterval)
     }
 
     override fun onClick(v: View?) {
+        val transaction = supportFragmentManager
+                .beginTransaction()
+
         when(v?.id) {
             R.id.left_tab -> {
                 mLeftTabView.isSelected = true
                 mRightTabView.isSelected = false
+                transaction.replace(R.id.fragment_container, CatsNearByFragment.newInstance())
             }
             R.id.right_tab -> {
                 mLeftTabView.isSelected = false
                 mRightTabView.isSelected = true
+                        transaction.replace(R.id.fragment_container, MyCatsFragment.newInstance())
             }
         }
+        transaction.commit()
     }
 
     private fun initBannerView() {
