@@ -1,13 +1,12 @@
 package com.tw.training.catkeeper.activity
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.ViewPager
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
 import com.tw.training.catkeeper.R
 import com.tw.training.catkeeper.adapter.BannerAdapter
 
@@ -29,8 +28,8 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, View.O
     }
 
     private fun initTabView() {
-        mLeftTabView = findViewById<Button>(R.id.left_tab)
-        mRightTabView = findViewById<Button>(R.id.right_tab)
+        mLeftTabView = findViewById(R.id.left_tab)
+        mRightTabView = findViewById(R.id.right_tab)
         mLeftTabView.isSelected = true
 
         mLeftTabView.setOnClickListener(this)
