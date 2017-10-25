@@ -16,12 +16,12 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, View.O
     private lateinit var mLeftTabView: Button
     private lateinit var mRightTabView: Button
     private lateinit var mIndicatorView: ViewGroup
+    private val mBannerInterval = 1000L
     private var mPreviousPosition: Int = 0
+
     private val mImageResIds = arrayListOf(R.mipmap.banner_1,
             R.mipmap.banner_2, R.mipmap.banner_3, R.mipmap.banner_4)
-
     private val mHandler: Handler = Handler()
-    private val mBannerInterval = 3000L
 
     private val mBannerRunnable: Runnable = object: Runnable {
         override fun run() {
@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, View.O
         mLeftTabView.isSelected = true
 
         mLeftTabView.setOnClickListener(this)
-
         mRightTabView.setOnClickListener(this)
     }
 

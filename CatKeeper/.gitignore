@@ -1,4 +1,4 @@
-app/app.iml
+app/*
 .idea
 .gradle
 CatKeeper/.idea
