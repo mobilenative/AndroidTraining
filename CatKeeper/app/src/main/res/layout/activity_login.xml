@@ -20,7 +20,7 @@
             android:layout_height="53dp"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitXY"
-            android:src="@mipmap/logo"
+            android:src="@drawable/logo"
             android:contentDescription="@string/text_logo_title" />
 
         <TextView
