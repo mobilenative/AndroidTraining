@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="20dp"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/ui_size_10"
+    android:paddingTop="@dimen/ui_size_10">
 
-    <TextView
-        android:id="@+id/cat_name"
-        android:text="Kitty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/ui_size_10"
+        android:layout_marginEnd="@dimen/ui_size_10"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/cat_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/cat_avatar" />
+
+        <TextView
+            android:id="@+id/cat_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/ui_size_10"
+            android:layout_toRightOf="@+id/cat_avatar"
+            android:text="Kitty" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="5 minutes ago"/>
+    </RelativeLayout>
 </LinearLayout>
