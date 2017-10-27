@@ -13,7 +13,7 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
+            android:layout_height="@dimen/ui_size_160" />
 
         <LinearLayout
             android:id="@+id/indicator_layout"
@@ -48,13 +48,17 @@
                 android:background="@drawable/banner_indicator_unselected" />
         </LinearLayout>
     </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:padding="@dimen/ui_size_32"
         android:background="#f4f5f6"
-        android:orientation="horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/ui_size_10"
+        android:paddingEnd="@dimen/ui_size_32"
+        android:paddingStart="@dimen/ui_size_32"
+        android:paddingTop="@dimen/ui_size_10">
 
         <Button
             android:id="@+id/left_tab"
@@ -63,8 +67,8 @@
             android:layout_weight="1"
             android:background="@drawable/left_tab_selector"
             android:gravity="center"
-            android:textAllCaps="false"
             android:text="@string/btn_txt_cats_nearby"
+            android:textAllCaps="false"
             android:textColor="@color/tab_text_selector"
             android:textSize="@dimen/text_size_14" />
 
@@ -73,10 +77,10 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/ui_size_28"
             android:layout_weight="1"
-            android:textAllCaps="false"
             android:background="@drawable/right_tab_selector"
             android:gravity="center"
             android:text="@string/btn_txt_my_cat"
+            android:textAllCaps="false"
             android:textColor="@color/tab_text_selector"
             android:textSize="@dimen/text_size_14" />
     </LinearLayout>
