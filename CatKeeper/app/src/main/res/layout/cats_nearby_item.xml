@@ -4,12 +4,12 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingBottom="@dimen/ui_size_10"
+    android:paddingEnd="@dimen/ui_size_10"
+    android:paddingStart="@dimen/ui_size_10"
     android:paddingTop="@dimen/ui_size_10">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_marginStart="@dimen/ui_size_10"
-        android:layout_marginEnd="@dimen/ui_size_10"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -24,14 +24,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/ui_size_10"
             android:layout_toRightOf="@+id/cat_avatar"
-            android:text="Kitty" />
+            android:text="Kitty"
+            android:textStyle="bold" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
-            android:text="5 minutes ago"/>
+            android:layout_centerVertical="true"
+            android:text="5 minutes ago" />
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/cat_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/ui_size_36"
+        android:text="Posted some new pictures" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/ui_size_36"
+        android:layout_marginTop="@dimen/ui_size_10">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cat_item_1" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/cat_item_2" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cat_item_3" />
+    </LinearLayout>
 </LinearLayout>
