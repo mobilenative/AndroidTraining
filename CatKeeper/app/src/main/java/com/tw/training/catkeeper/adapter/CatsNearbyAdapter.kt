@@ -6,23 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.tw.training.catkeeper.R
 
 /**
  * Created by pchen on 26/10/2017.
  */
-class CatsNearbyAdapter(private val mContext: Context):
+class CatsNearbyAdapter(context: Context) :
         RecyclerView.Adapter<CatsNearbyAdapter.CatsNearbyViewHolder>() {
 
-    private val mInflater: LayoutInflater = LayoutInflater.from(mContext)
+    private val mInflater: LayoutInflater = LayoutInflater.from(context)
+    var mProfileClickListener: OnProfileClickListener? = null
 
     override fun getItemCount(): Int {
         return 1000
     }
 
     override fun onBindViewHolder(holder: CatsNearbyAdapter.CatsNearbyViewHolder?, position: Int) {
-        holder?.nameTv?.text = "Hello Kitty"
+        holder?.mNameTv?.text = "Hello Kitty"
+        holder?.mPosition = position
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CatsNearbyAdapter.CatsNearbyViewHolder {
@@ -30,7 +33,19 @@ class CatsNearbyAdapter(private val mContext: Context):
         return CatsNearbyViewHolder(itemView)
     }
 
-    class CatsNearbyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val nameTv: TextView = itemView.findViewById(R.id.cat_name)
+    inner class CatsNearbyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var mPosition = 0
+        val mNameTv: TextView = itemView.findViewById(R.id.cat_name)
+        val mAvatarIv: ImageView = itemView.findViewById(R.id.cat_avatar)
+
+        init {
+            mAvatarIv.setOnClickListener {
+                mProfileClickListener?.onProfileClick(mPosition)
+            }
+        }
+    }
+
+    interface OnProfileClickListener {
+        fun onProfileClick(position: Int)
     }
 }
