@@ -20,11 +20,13 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, View.O
     private lateinit var mIndicatorView: ViewGroup
     private val mBannerInterval = 1000L
     private var mPreviousPosition: Int = 0
+    private var mCatsNearbyFragment: CatsNearByFragment? = null
+    private var mMyCatsFragment: MyCatsFragment? = null
 
     private val mImageResIds = arrayListOf(R.drawable.banner_1,
             R.drawable.banner_2, R.drawable.banner_3, R.drawable.banner_4)
-    private val mHandler: Handler = Handler()
 
+    private val mHandler: Handler = Handler()
     private val mBannerRunnable: Runnable = object: Runnable {
         override fun run() {
             mViewPager.currentItem++
@@ -51,8 +53,9 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, View.O
     }
 
     private fun initFragmentView() {
+        mCatsNearbyFragment = CatsNearByFragment.newInstance()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.fragment_container, CatsNearByFragment.newInstance())
+        fragmentTransaction.add(R.id.fragment_container, mCatsNearbyFragment)
         fragmentTransaction.commit()
     }
 
@@ -69,12 +72,14 @@ class MainActivity : AppCompatActivity(), ViewPager.OnPageChangeListener, View.O
             R.id.left_tab -> {
                 mLeftTabView.isSelected = true
                 mRightTabView.isSelected = false
-                transaction.replace(R.id.fragment_container, CatsNearByFragment.newInstance())
+                transaction.replace(R.id.fragment_container, mCatsNearbyFragment ?:
+                        CatsNearByFragment.newInstance())
             }
             R.id.right_tab -> {
                 mLeftTabView.isSelected = false
                 mRightTabView.isSelected = true
-                        transaction.replace(R.id.fragment_container, MyCatsFragment.newInstance())
+                        transaction.replace(R.id.fragment_container, mMyCatsFragment ?:
+                                MyCatsFragment.newInstance())
             }
         }
         transaction.commit()
