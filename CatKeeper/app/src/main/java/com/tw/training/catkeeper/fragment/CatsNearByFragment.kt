@@ -9,13 +9,18 @@ import android.view.View
 import android.view.ViewGroup
 import com.tw.training.catkeeper.R
 import com.tw.training.catkeeper.adapter.CatsNearbyAdapter
+import com.tw.training.catkeeper.domain.CatsNearby
+import com.tw.training.catkeeper.presenter.CatsNearbyContract
+import com.tw.training.catkeeper.presenter.CatsNearbyPresenter
 
 /**
  * Created by pchen on 25/10/2017.
  */
-class CatsNearByFragment : Fragment() {
-
+class CatsNearByFragment : Fragment(), CatsNearbyContract.View {
     private lateinit var mRecyclerView: RecyclerView
+
+    private val mPresenter: CatsNearbyPresenter = CatsNearbyPresenter(this)
+    private lateinit var mCatsNearbyAdapter: CatsNearbyAdapter
 
     companion object {
         fun newInstance(): CatsNearByFragment {
@@ -33,6 +38,13 @@ class CatsNearByFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mRecyclerView.layoutManager = LinearLayoutManager(activity)
-        mRecyclerView.adapter = CatsNearbyAdapter(activity)
+        mCatsNearbyAdapter = CatsNearbyAdapter(activity, null)
+        mRecyclerView.adapter = mCatsNearbyAdapter
+        mPresenter.start()
+    }
+
+    override fun showNearbyCats(catsNearbyList: ArrayList<CatsNearby>) {
+        mCatsNearbyAdapter.mCatsNearbyList = catsNearbyList
+        mCatsNearbyAdapter.notifyDataSetChanged()
     }
 }

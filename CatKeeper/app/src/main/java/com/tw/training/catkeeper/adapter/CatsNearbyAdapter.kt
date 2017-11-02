@@ -9,22 +9,23 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.tw.training.catkeeper.R
+import com.tw.training.catkeeper.domain.CatsNearby
 
 /**
  * Created by pchen on 26/10/2017.
  */
-class CatsNearbyAdapter(context: Context) :
+class CatsNearbyAdapter(context: Context, var mCatsNearbyList: List<CatsNearby>?) :
         RecyclerView.Adapter<CatsNearbyAdapter.CatsNearbyViewHolder>() {
 
     private val mInflater: LayoutInflater = LayoutInflater.from(context)
     var mProfileClickListener: OnProfileClickListener? = null
 
     override fun getItemCount(): Int {
-        return 1000
+        return mCatsNearbyList?.size ?: 0
     }
 
     override fun onBindViewHolder(holder: CatsNearbyAdapter.CatsNearbyViewHolder?, position: Int) {
-        holder?.mNameTv?.text = "Hello Kitty"
+        holder?.mNameTv?.text = mCatsNearbyList?.get(position)?.mCatName
         holder?.mPosition = position
     }
 
@@ -41,6 +42,7 @@ class CatsNearbyAdapter(context: Context) :
         init {
             mAvatarIv.setOnClickListener {
                 mProfileClickListener?.onProfileClick(mPosition)
+
             }
         }
     }
