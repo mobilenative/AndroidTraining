@@ -42,7 +42,6 @@ class CatsNearbyAdapter(context: Context, var mCatsNearbyList: List<CatsNearby>?
         init {
             mAvatarIv.setOnClickListener {
                 mProfileClickListener?.onProfileClick(mPosition)
-
             }
         }
     }
