@@ -25,7 +25,7 @@ class CatsNearbyAdapter(context: Context, var mCatsNearbyList: List<CatsNearby>?
     }
 
     override fun onBindViewHolder(holder: CatsNearbyAdapter.CatsNearbyViewHolder?, position: Int) {
-        holder?.mNameTv?.text = mCatsNearbyList?.get(position)?.mCatName
+        holder?.mNameTv?.text = mCatsNearbyList?.get(position)?.name
         holder?.mPosition = position
     }
 
