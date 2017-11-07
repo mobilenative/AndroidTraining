@@ -1,10 +1,12 @@
 package com.tw.training.catkeeper.presenter
 
+import android.graphics.Bitmap
 import android.os.AsyncTask
 import android.util.Log
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.tw.training.catkeeper.domain.CatsNearby
+import com.tw.training.catkeeper.network.Constants.Companion.CATS_NEARBY_URL
 import com.tw.training.catkeeper.network.HttpUtils
 import org.json.JSONObject
 
@@ -14,8 +16,9 @@ import org.json.JSONObject
 class CatsNearbyPresenter(private val mCatsNearbyView: CatsNearbyContract.View):
         CatsNearbyContract.Presenter {
 
-    private var CATS_NEARBY_URL = "http://10.0.2.2:8080/catnip/moment/"
-    private var DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    companion object {
+        private var DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    }
     private var mCatsNearbyTask: CatsNearbyAsyncTask? = null
 
     override fun start() {

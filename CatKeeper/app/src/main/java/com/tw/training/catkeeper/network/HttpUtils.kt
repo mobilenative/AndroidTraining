@@ -1,6 +1,8 @@
 package com.tw.training.catkeeper.network
 
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -21,5 +23,20 @@ class HttpUtils {
         }
 
         return response
+    }
+
+    fun doDownloadImage(urlString: String): Bitmap? {
+        val url = URL(urlString)
+        val bitmap: Bitmap?
+        val urlConnection = url.openConnection() as HttpURLConnection
+
+        try {
+            urlConnection.doInput = true
+            urlConnection.connect()
+            bitmap = BitmapFactory.decodeStream(urlConnection.getInputStream())
+        } finally {
+            urlConnection.disconnect()
+        }
+        return bitmap
     }
 }
