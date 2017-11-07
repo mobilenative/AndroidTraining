@@ -11,5 +11,6 @@ interface CatsNearbyContract {
     }
     interface Presenter {
         fun start()
+        fun stop()
     }
 }

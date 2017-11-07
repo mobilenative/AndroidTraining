@@ -15,28 +15,17 @@ import org.json.JSONObject
  */
 class CatsNearbyPresenter(private val mCatsNearbyView: CatsNearbyContract.View):
         CatsNearbyContract.Presenter {
-
     companion object {
+
         private var DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
     }
     private var mCatsNearbyTask: CatsNearbyAsyncTask? = null
-
     override fun start() {
         loadingCatsNearbyList()
     }
 
     private fun loadingCatsNearbyList() {
-         //Fetch Cats List
-//        val catsNearbyList = ArrayList<CatsNearby>()
-//        (1..100).forEach {
-//            val catsNearby = CatsNearby("Kitty$it", "6 minutes ago",
-//                    listOf(R.drawable.cat_item_1, R.drawable.cat_item_2, R.drawable.cat_item_3))
-//            catsNearbyList.add(catsNearby)
-//        }
-//        mCatsNearbyView.showNearbyCats(catsNearbyList)
-        if(mCatsNearbyTask == null) {
-            mCatsNearbyTask = CatsNearbyAsyncTask()
-        }
+        mCatsNearbyTask = CatsNearbyAsyncTask()
         mCatsNearbyTask?.execute(CATS_NEARBY_URL)
     }
 
@@ -48,12 +37,15 @@ class CatsNearbyPresenter(private val mCatsNearbyView: CatsNearbyContract.View):
                     object: TypeToken<List<CatsNearby>>(){}.type)
 
         }
-
         override fun onPostExecute(result: List<CatsNearby>?) {
             super.onPostExecute(result)
             Log.d("CatsOnline", "moment size is: " + result?.size)
             mCatsNearbyView.showNearbyCats(result)
         }
 
+    }
+
+    override fun stop() {
+        mCatsNearbyTask?.cancel(true)
     }
 }

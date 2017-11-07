@@ -53,4 +53,9 @@ class CatsNearByFragment : Fragment(), CatsNearbyContract.View, CatsNearbyAdapte
     override fun onProfileClick(position: Int) {
         Toast.makeText(activity, "current position: $position", Toast.LENGTH_LONG).show()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mPresenter.stop()
+    }
 }
