@@ -29,6 +29,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/update_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -50,17 +51,20 @@
         android:layout_marginTop="@dimen/ui_size_10">
 
         <ImageView
+            android:id="@+id/thumb_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/cat_item_1" />
 
         <ImageView
+            android:id="@+id/thumb_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/cat_item_2" />
 
         <ImageView
+            android:id="@+id/thumb_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/cat_item_3" />

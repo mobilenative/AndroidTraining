@@ -45,7 +45,7 @@ class CatsNearByFragment : Fragment(), CatsNearbyContract.View, CatsNearbyAdapte
         mPresenter.start()
     }
 
-    override fun showNearbyCats(catsNearbyList: ArrayList<CatsNearby>) {
+    override fun showNearbyCats(catsNearbyList: List<CatsNearby>?) {
         mCatsNearbyAdapter.mCatsNearbyList = catsNearbyList
         mCatsNearbyAdapter.notifyDataSetChanged()
     }
