@@ -1,15 +1,14 @@
 package com.tw.training.catkeeper.activity
 
 import android.widget.Button
-import com.tw.training.catkeeper.BuildConfig
 import com.tw.training.catkeeper.R
-import org.junit.Assert.*
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 
 /**
  * Created by pchen on 18/10/2017.
